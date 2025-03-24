@@ -45,3 +45,8 @@ h1 {
     object-fit: cover;
     border-radius: 8px;
 }
+footer {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
