@@ -50,7 +50,52 @@ footer {
     font-size: 14px;
     color: #666;
 }
-.buttonOne {
+#buttonOne {
     color: black;
     background-color: orange;
+    border-radius: 30px;
+    margin-top: 10px;
 }
+#buttonTwo {
+     color: black;
+    background-color: orange;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+#buttonThree {
+     color: black;
+    background-color: orange;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+#buttonFour {
+     color: black;
+    background-color: orange;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+#buttonFive {
+     color: black;
+    background-color: orange;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+#buttonSix {
+     color: black;
+    background-color: orange;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+#buttonSeven {
+     color: black;
+    background-color: orange;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+#buttonEight {
+     color: black;
+    background-color: orange;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
