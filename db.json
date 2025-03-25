@@ -1,0 +1,52 @@
+{
+  "hotels": [
+    {
+      "id": "a81c",
+      "name": "Sarova White Sands",
+      "rates": "10000",
+      "location": "Mombasa"
+    },
+    {
+      "id": "2940",
+      "name": "Diamonds Malindi",
+      "rates": "11000",
+      "location": "Malindi"
+    },
+    {
+      "id": "4ff9",
+      "name": "Villa Ameera",
+      "rates": "12000",
+      "location": "Malindi"
+    },
+    {
+      "id": "6678",
+      "name": "English Point Marina",
+      "rates": "13000",
+      "location": "Mombasa"
+    },
+    {
+      "id": "5ab4",
+      "name": "Chale Island Resort",
+      "rates": "14000",
+      "location": "Mombasa"
+    },
+    {
+      "id": "0e04",
+      "name": "Eliye Springs  Resort",
+      "rates": "15000",
+      "location": "Lake Turkana"
+    },
+    {
+      "id": "7f9b",
+      "name": "Lake Nakuru Lodge",
+      "rates": "16000",
+      "location": "Lake Nakuru"
+    },
+    {
+      "id": "e974",
+      "name": "Acacia Premiere",
+      "rates": "17000",
+      "location": "Kisumu"
+    }
+  ]
+}
