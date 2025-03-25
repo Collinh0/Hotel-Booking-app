@@ -39,4 +39,21 @@ buttonSeven.addEventListener("click", (e) => {
 
 buttonEight.addEventListener("click", (e) => {
     console.log("Booking Acacia Premiere")
-})
+}) 
+
+//fetch
+const options = {
+  method: "GET",
+  headers: {
+    Accept: "*/*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "User-Agent": "EchoapiRuntime/1.1.0",
+    Connection: "keep-alive",
+  },
+ // body: "false", -> commented out
+};
+
+fetch("http://localhost:3000/hotels", options)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
+  .catch((err) => console.error(err));
