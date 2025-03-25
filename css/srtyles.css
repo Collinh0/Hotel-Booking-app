@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: green;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -9,7 +9,7 @@ body {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background: white;
+    background: aquamarine;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -49,4 +49,8 @@ footer {
     margin-top: 10px;
     font-size: 14px;
     color: #666;
+}
+.buttonOne {
+    color: black;
+    background-color: orange;
 }
