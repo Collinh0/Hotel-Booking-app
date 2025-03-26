@@ -69,7 +69,7 @@ fetch("http://localhost:3000/hotels", options)
     });
 
  //fetchig and displaying the hotels
- const hotelContainer = document.getElementById("hotels");
+ const hotelContainer = document.getElementById("hotelId");
  const searchInput = document.getElementById("search");
 
  let hotelsData = [];
@@ -90,10 +90,10 @@ fetch("http://localhost:3000/hotels", options)
         <h3>${hotel.name}</h3>
         <p> Location: ${hotel.location}</p>
         <p> Price: ksh${hotel.rates}</p>
-        <button onclick="bookHotel(${hotel.id})" ${
+        <button onclick = "bookHotel(${hotel.id})" ${
         hotel.availability ? "" : "disabled"
       }
-        > Book Now
+        class = "buttonjs"> Book Now
          </button>
       </div>
     `
@@ -111,7 +111,8 @@ searchInput.addEventListener("input", () => {
 });
 
 //booking
-function openBookingForm(hotelId) {
+
+ function openBookingForm(hotelId) {
   fetch(`http://localhost:3000/hotels/${hotelId}`)
     .then((res) => res.json())
     .then((hotel) => {
@@ -129,13 +130,12 @@ function openBookingForm(hotelId) {
       document.getElementById("hotel-id").value = hotel.id; // Store ID for submission
     });
 }
-document
-  .getElementById("booking-form")
-  .addEventListener("submit", function (event) {
+document.getElementById("booking-form")
+  document.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const bookingData = {
-      hotelId: document.getElementById("hotel-id").value,
+      hotelId: document.getElementById("hotelId").value,
       email: document.getElementById("email").value,
       checkIn: document.getElementById("check-in").value,
       payment: document.getElementById("payment").value,
@@ -149,10 +149,14 @@ document
       .then((res) => res.json())
       .then(() => {
         alert("Hotel booked successfully!");
-        document.getElementById("booking-form").style.display = "none"; // Hide form after booking
-        document.getElementById("booking-form").reset(); // Reset form fields
+        document.getElementById("booking-form").style.display = "none";
+        document.getElementById("booking-form").reset(); 
       });
-  });
+  }); 
+  
+
+ 
+
 
 
 

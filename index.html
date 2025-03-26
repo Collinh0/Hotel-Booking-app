@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking.com</title>
-    <link rel="stylesheet" href="./css/srtyles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
      
@@ -15,7 +15,7 @@
             <div class="column">
                 <div class="hotel-card">
                     <h2>Sarova White Sands Beach Resort</h2>
-                    <img src="images/image.png" alt="Hotel Nairobi">
+                    <img src="images/image.png" alt="Sarova White Sands">
                     <footer>Mombasa</footer> <button id="buttonOne">Book Now</button>
                 </div>
                 <div class="hotel-card">
@@ -55,8 +55,11 @@
                     <img src="images/acacia.jpg" alt="Hotel Garissa">
                     <footer>Kisumu</footer> <button id="buttonEight">Book Now</button>
                 </div>
+                <script src="./src/index.js"></script>
             </div>
-        </div>
+              
+        </div> 
+      
         <div id="booking-form-container" class="hidden">
   <h2>Book Your Hotel</h2>
   <p id="selected-hotel"></p>
@@ -64,19 +67,15 @@
     <input type="email" id="email" placeholder="Enter your email" required />
     <input type="date" id="checkin-date" required />
     <select id="payment-mode">
-      <option value="Credit Card">M Pesa</option>
-      <option value="PayPal">Local Bank</option>
-      <option value="UPI">Paypal</option>
+      <option value="M Pesa">M Pesa</option>
+      <option value="Bank">Local Bank</option>
+      <option value="Paypal">Paypal</option>
     </select>
     <button type="submit">Confirm Booking</button>
     <button type="button" onclick="closeBookingForm()">Cancel</button>
   </form>
-</div>
-
-       
-
-        <script src="./src/index.js"></script>
-    </div>
+ </div>
+ </div>
     
 
     

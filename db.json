@@ -54,7 +54,8 @@
       "name": "Acacia Premiere",
       "rates": "17000",
       "location": "Kisumu",
-      "poster": "images/acacia.jpg"
+      "poster": "images/acacia.jpg",
+      "button": "buttonEight"
     }
   ]
 }
