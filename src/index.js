@@ -56,4 +56,14 @@ const options = {
 fetch("http://localhost:3000/hotels", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
-  .catch((err) => console.error(err));
+    .catch((err) => console.error(err));
+  
+//dark/light theme
+    const toggleButton = document.getElementById("theme-toggle");
+    const body = document.body;
+
+
+    // Toggle function
+    toggleButton.addEventListener("click", () => {
+      body.classList.toggle("dark-mode")
+    });

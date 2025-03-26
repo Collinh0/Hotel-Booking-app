@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: green;
+    background-color: whitesmoke;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -18,7 +18,7 @@ h1 {
 }
 .hotel-grid {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 20px;
 }
 .column {
@@ -98,4 +98,19 @@ footer {
     border-radius: 30px;
     margin-top: 10px;
 }
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode button {
+  background-color: #333;
+  color: #fff;
+}
+#theme-toggle {
+    background-color: black,white;
+    margin-bottom: 23px;
+    border-radius: 15px;
+}
+
 
