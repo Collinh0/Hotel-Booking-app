@@ -68,7 +68,8 @@ fetch("http://localhost:3000/hotels", options)
       body.classList.toggle("dark-mode")
     });
 
-    const hotelContainer = document.getElementById("hotels");
+ //fetchig and displaying the hotels
+ const hotelContainer = document.getElementById("hotels");
  const searchInput = document.getElementById("search");
 
  let hotelsData = [];
@@ -76,76 +77,87 @@ fetch("http://localhost:3000/hotels", options)
  fetch("http://localhost:3000/hotels")
   .then(res => res.json())
   .then(hotels => {
-    hotelsData = hotels; // Store hotel data globally
-    displayHotels(hotelsData); // Display all hotels initially
+    hotelsData = hotels; 
+    displayHotels(hotelsData); 
   });
 
  function displayHotels(hotels) {
   hotelContainer.innerHTML = hotels
-    .map(hotel => `
+    .map(
+      (hotel) => `
       <div class="hotel">
-        <img src="${hotel.poster}" alt="${hotel.name}" class="hotel-image">
+    <img src="${hotel.poster}" alt="${hotel.name}" class="hotel-image">
         <h3>${hotel.name}</h3>
         <p> Location: ${hotel.location}</p>
-        <p> Price: $${hotel.rates}</p>
-        <button onclick="bookHotel(${hotel.id})" ${hotel.availability ? "" : "disabled"}>
-          Book Now
-        </button>
+        <p> Price: ksh${hotel.rates}</p>
+        <button onclick="bookHotel(${hotel.id})" ${
+        hotel.availability ? "" : "disabled"
+      }
+        > Book Now
+         </button>
       </div>
-    `)
+    `
+    )
     .join("");
 }
 
 // Search filter
 searchInput.addEventListener("input", () => {
-  const searchTerm = searchInput.value.toLowerCase();
-  const filteredHotels = hotelsData.filter(hotel =>
-    hotel.name.toLowerCase().includes(searchTerm)
-  );
-  displayHotels(filteredHotels);
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredHotels = hotelsData.filter(hotel =>
+        hotel.name.toLowerCase().includes(searchTerm)
+    );
+    displayHotels(filteredHotels);
 });
 
+//booking
+function openBookingForm(hotelId) {
+  fetch(`http://localhost:3000/hotels/${hotelId}`)
+    .then((res) => res.json())
+    .then((hotel) => {
+      document.getElementById("booking-form").style.display = "block";
+      document.getElementById("hotel-name").innerText = hotel.name; // Show hotel name in form
+      document.getElementById("hotel-id").value = hotel.id; // Store ID for submission
+    });
+}
+function openBookingForm(hotelId) {
+  fetch(`http://localhost:3000/hotels/${hotelId}`)
+    .then((res) => res.json())
+    .then((hotel) => {
+      document.getElementById("booking-form").style.display = "block";
+      document.getElementById("hotel-name").innerText = hotel.name; // Show hotel name in form
+      document.getElementById("hotel-id").value = hotel.id; // Store ID for submission
+    });
+}
+document
+  .getElementById("booking-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
- /**search filter
-    const hotelContainer = document.getElementById("hotels");
-    const searchInput = document.getElementById("search");
+    const bookingData = {
+      hotelId: document.getElementById("hotel-id").value,
+      email: document.getElementById("email").value,
+      checkIn: document.getElementById("check-in").value,
+      payment: document.getElementById("payment").value,
+    };
 
-    // Fetch hotel data
-    let hotelsData = [];
-
-    fetch("http://localhost:3000/hotels")
+    fetch("http://localhost:3000/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bookingData),
+    })
       .then((res) => res.json())
-      .then((hotels) => {
-        hotelsData = hotels; // Store data globally
-        displayHotels(hotelsData); // Display all hotels initially
+      .then(() => {
+        alert("Hotel booked successfully!");
+        document.getElementById("booking-form").style.display = "none"; // Hide form after booking
+        document.getElementById("booking-form").reset(); // Reset form fields
       });
+  });
 
-    // Function to display hotels dynamically
-    function displayHotels(hotels) {
-      hotelContainer.innerHTML = hotels
-        .map(
-          (hotel) => `
-      <div class="hotel">
-        <h3>${hotel.name}</h3>
-        <p>Price: $${hotel.rates}</p>
-        <button onclick="bookHotel(${hotel.id})" ${
-            hotel.availability ? "" : "disabled"
-          }>
-          Book Now
-        </button>
-      </div>
-    `
-        )
-        .join("");
-    }
 
-    // Search filter functionality
-    searchInput.addEventListener("input", () => {
-      const searchTerm = searchInput.value.toLowerCase();
-      const filteredHotels = hotelsData.filter((hotel) =>
-        hotel.name.toLowerCase().includes(searchTerm)
-      );
-      displayHotels(filteredHotels); // Update UI with filtered hotels
-    });**/
- 
+
+
+
+     
+
  

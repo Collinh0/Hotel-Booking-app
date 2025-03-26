@@ -57,6 +57,22 @@
                 </div>
             </div>
         </div>
+        <div id="booking-form-container" class="hidden">
+  <h2>Book Your Hotel</h2>
+  <p id="selected-hotel"></p>
+  <form id="booking-form">
+    <input type="email" id="email" placeholder="Enter your email" required />
+    <input type="date" id="checkin-date" required />
+    <select id="payment-mode">
+      <option value="Credit Card">M Pesa</option>
+      <option value="PayPal">Local Bank</option>
+      <option value="UPI">Paypal</option>
+    </select>
+    <button type="submit">Confirm Booking</button>
+    <button type="button" onclick="closeBookingForm()">Cancel</button>
+  </form>
+</div>
+
        
 
         <script src="./src/index.js"></script>
