@@ -67,3 +67,85 @@ fetch("http://localhost:3000/hotels", options)
     toggleButton.addEventListener("click", () => {
       body.classList.toggle("dark-mode")
     });
+
+    const hotelContainer = document.getElementById("hotels");
+ const searchInput = document.getElementById("search");
+
+ let hotelsData = [];
+
+ fetch("http://localhost:3000/hotels")
+  .then(res => res.json())
+  .then(hotels => {
+    hotelsData = hotels; // Store hotel data globally
+    displayHotels(hotelsData); // Display all hotels initially
+  });
+
+ function displayHotels(hotels) {
+  hotelContainer.innerHTML = hotels
+    .map(hotel => `
+      <div class="hotel">
+        <img src="${hotel.poster}" alt="${hotel.name}" class="hotel-image">
+        <h3>${hotel.name}</h3>
+        <p> Location: ${hotel.location}</p>
+        <p> Price: $${hotel.rates}</p>
+        <button onclick="bookHotel(${hotel.id})" ${hotel.availability ? "" : "disabled"}>
+          Book Now
+        </button>
+      </div>
+    `)
+    .join("");
+}
+
+// Search filter
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  const filteredHotels = hotelsData.filter(hotel =>
+    hotel.name.toLowerCase().includes(searchTerm)
+  );
+  displayHotels(filteredHotels);
+});
+
+
+ /**search filter
+    const hotelContainer = document.getElementById("hotels");
+    const searchInput = document.getElementById("search");
+
+    // Fetch hotel data
+    let hotelsData = [];
+
+    fetch("http://localhost:3000/hotels")
+      .then((res) => res.json())
+      .then((hotels) => {
+        hotelsData = hotels; // Store data globally
+        displayHotels(hotelsData); // Display all hotels initially
+      });
+
+    // Function to display hotels dynamically
+    function displayHotels(hotels) {
+      hotelContainer.innerHTML = hotels
+        .map(
+          (hotel) => `
+      <div class="hotel">
+        <h3>${hotel.name}</h3>
+        <p>Price: $${hotel.rates}</p>
+        <button onclick="bookHotel(${hotel.id})" ${
+            hotel.availability ? "" : "disabled"
+          }>
+          Book Now
+        </button>
+      </div>
+    `
+        )
+        .join("");
+    }
+
+    // Search filter functionality
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredHotels = hotelsData.filter((hotel) =>
+        hotel.name.toLowerCase().includes(searchTerm)
+      );
+      displayHotels(filteredHotels); // Update UI with filtered hotels
+    });**/
+ 
+ 
