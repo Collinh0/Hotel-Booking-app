@@ -17,14 +17,6 @@
       "poster": "images/villaAmeera.jpg"
     },
     {
-      "id": "6678",
-      "name": "English Point Marina",
-      "rates": "13000",
-      "location": "Mombasa",
-      "poster": "images/englishpoint-marina-hotel-mombasa-9.webp",
-      "starred": false
-    },
-    {
       "id": "5ab4",
       "name": "Chale Island Resort",
       "rates": "16000",
@@ -59,6 +51,68 @@
       "rates": "10000",
       "location": "Mombasa",
       "poster": "images/image.png"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "a81c",
+      "name": "Sarova White Sands",
+      "rates": "10000",
+      "location": "Mombasa",
+      "poster": "images/image.png"
+    },
+    {
+      "id": "e974",
+      "name": "Acacia Premiere",
+      "rates": "17000",
+      "location": "Kisumu",
+      "poster": "images/acacia.jpg",
+      "button": "buttonEight"
+    },
+    {
+      "id": "4ff9",
+      "name": "Villa Ameera",
+      "rates": "12000",
+      "location": "Malindi",
+      "poster": "images/villaAmeera.jpg"
+    },
+    {
+      "id": "5ab4",
+      "name": "Chale Island Resort",
+      "rates": "16000",
+      "location": "Kwale",
+      "poster": "images/chale-island.jpg"
+    },
+    {
+      "id": "0e04",
+      "name": "Eliye Springs  Resort",
+      "rates": "15000",
+      "location": "Lake Turkana",
+      "poster": "images/eliyeSprings.jpg"
+    },
+    {
+      "id": "7f9b",
+      "name": "Lake Nakuru Lodge",
+      "rates": "16000",
+      "location": "Lake Nakuru",
+      "poster": "images/Lake-Nakuru-Sopa.jpg"
+    },
+    {
+      "id": "6678",
+      "name": "English Point Marina",
+      "rates": "13000",
+      "location": "Mombasa",
+      "poster": "images/englishpoint-marina-hotel-mombasa-9.webp",
+      "starred": false
+    },
+    {
+      "id": "2940",
+      "name": "Diamonds",
+      "rates": "11000",
+      "location": "Malindi",
+      "poster": "images/DiamondsMalindi.jpg",
+      "starred": false,
+      "Bookmarked": true
     }
   ]
 }

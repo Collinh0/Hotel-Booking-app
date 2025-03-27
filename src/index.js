@@ -97,22 +97,14 @@ fetch("http://localhost:3000/hotels", options)
         <h3>${hotel.name}</h3>
         <p> Location: ${hotel.location}</p>
         <p> Price: ksh${hotel.rates}</p>
-        <button onclick = "bookHotel(${hotel.id})" ${
-        hotel.availability ? "" : "disabled"
-      }
-        class = "buttonjs"> Book Now
-         </button>
+        <button onclick="openBookingForm(${hotel.id}, '${
+        hotel.name
+      }')">Book Hotel</button>
       </div>
-       
-    `
-    )
+        `)
     .join("");
  }
-//adding event listener to buttonJs
-const buttonJs = document.getElementById(buttonjs)
-buttonJs.addEventListener("click", (e) => {
-  console.log("Booking Hotel")
-})
+
 
 // Search filter
 searchInput.addEventListener("input", () => {
@@ -124,8 +116,8 @@ searchInput.addEventListener("input", () => {
 });
 
 //booking
-
- function openBookingForm(hotelId) {
+//NB: Commented out during debugging totry a new code and it worked.Might as well delete these lines when satisfied with the results.
+ /** function openBookingForm(hotelId) {
   fetch(`http://localhost:3000/hotels/${hotelId}`)
     .then((res) => res.json())
     .then((hotel) => {
@@ -166,7 +158,7 @@ document
         document.getElementById("booking-form").style.display = "none";
         document.getElementById("booking-form").reset(); 
       });
-  }); 
+  }); */
   
 //Bookmarking featue
   function toggleStar(hotelId, isStarred) {
@@ -188,6 +180,46 @@ document
       .catch((error) => console.error("Error updating star status:", error));
   }
 
+//fn to open booking form
+function openBookingForm(hotelId, hotelName) {
+  document.getElementById("booking-form").style.display = "block";
+  document.getElementById("hotel-name").innerText = hotelName;
+  document.getElementById("hotel-id").value = hotelId;
+}
+
+// Close booking form
+function closeBookingForm() {
+  document.getElementById("booking-form").style.display = "none";
+}
+
+//Booking submission
+document.getElementById("bookingForm")
+  document.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const bookingData = {
+      hotelId: document.getElementById("hotel-id").value,
+      email: document.getElementById("email").value,
+      checkIn: document.getElementById("check-in").value,
+      payment: document.getElementById("payment").value,
+    };
+
+    fetch("http://localhost:3000/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bookingData),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        alert(" Booked!");
+        document.getElementById("booking-form").style.display = "none";
+        document.getElementById("bookingForm").reset();
+      })
+      .catch((error) => {
+        console.error("Error booking hotel:", error);
+        alert("⚠️ Booking failed. Please try again.");
+      });
+  });
 
  
 
