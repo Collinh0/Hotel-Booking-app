@@ -6,7 +6,7 @@
       "rates": "11000",
       "location": "Malindi",
       "poster": "images/DiamondsMalindi.jpg",
-      "starred": false,
+      "starred": true,
       "Bookmarked": true
     },
     {
@@ -45,7 +45,7 @@
       "rates": "13000",
       "location": "Mombasa",
       "poster": "images/englishpoint-marina-hotel-mombasa-9.webp",
-      "starred": true
+      "starred": false
     },
     {
       "id": "4ff9",

@@ -62,10 +62,10 @@
         </div> 
       
         <div id="booking-form-container" class="hidden">
-  <h2>Book Your Hotel</h2>
+  <h2>Book <span id="hotel-name"></span></h2>
   <p id="selected-hotel"></p>
   <form id="booking-form">
-    <input type="email" id="email" placeholder="Enter your email" required />
+  <input type="email" id="email" placeholder="Enter your email" required />
     <input type="date" id="checkin-date" required />
     <select id="payment-mode">
       <option value="M Pesa">M Pesa</option>
@@ -73,7 +73,7 @@
       <option value="Paypal">Paypal</option>
     </select>
     <button type="submit">Confirm Booking</button>
-    <button type="button" onclick="closeBookingForm()">Cancel</button>
+    <button type="button" onclick = "closeBookingForm"()>Cancel</button>
   </form>
  </div>
  </div>

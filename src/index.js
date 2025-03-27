@@ -45,7 +45,7 @@ buttonEight.addEventListener("click", (e) => {
 const options = {
   method: "GET",
   headers: {
-    Accept: "*/*",
+    Accept: "*/*", 
     "Accept-Encoding": "gzip, deflate, br",
     "User-Agent": "EchoapiRuntime/1.1.0",
     Connection: "keep-alive",
@@ -68,7 +68,7 @@ fetch("http://localhost:3000/hotels", options)
       body.classList.toggle("dark-mode")
     });
 
- //fetchig and displaying the hotels
+ //fetching and displaying the hotels
  const hotelContainer = document.getElementById("hotelss");
  const searchInput = document.getElementById("search");
 
@@ -96,12 +96,15 @@ fetch("http://localhost:3000/hotels", options)
         <h3>${hotel.name}</h3>
         <p> Location: ${hotel.location}</p>
         <p> Price: ksh${hotel.rates}</p>
-        <button onclick = "openBookingForm(${hotel.id}, '${hotel.name}')">Book Hotel</button>
+        <button onclick = "openBookingForm(${hotel.id}, '${
+        hotel.name 
+      }')">Book Hotel</button>
       </div>
-       `)
+       `
+    )
     .join("");
- }
-
+ } 
+ 
 
 // Search filter
 searchInput.addEventListener("input", () => {
@@ -112,7 +115,7 @@ searchInput.addEventListener("input", () => {
     displayHotels(filteredHotels);
 });
  
-//Bookmarking featue
+//Bookmarking feature
   function toggleStar(hotelId, isStarred) {
     fetch(`http://localhost:3000/hotels/${hotelId}`)
       .then((res) => res.json())
@@ -131,6 +134,7 @@ searchInput.addEventListener("input", () => {
       })
       //.catch((error) => console.error("Error updating star status:", error));
   }
+  
 
 //fn to open booking form
 function openBookingForm(hotelId, hotelName) {
@@ -145,7 +149,7 @@ function closeBookingForm() {
 }
 
 //Booking submission
-document.getElementById("bookingForm")
+ document.getElementById("bookingForm")
   document.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -156,7 +160,7 @@ document.getElementById("bookingForm")
       payment: document.getElementById("payment").value,
     };
 
-    fetch("http://localhost:3000/hotels", {
+    fetch("http://localhost:3000/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(bookingData),
@@ -171,9 +175,9 @@ document.getElementById("bookingForm")
         console.error("Error booking hotel:", error);
         alert("Booking failed. Please try again.");
       });
-  });
+  }); 
 
- 
+
 
 
 
