@@ -141,10 +141,10 @@ body.dark-mode {
   border-radius: 10px;
 
 }
-#hotels {
+#hotelss {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-  gap: 20px; /* Spacing between hotels */
+  grid-template-columns:repeat(2, 1fr);
+  gap: 10px; 
 }
 
 .hotel {
@@ -155,7 +155,22 @@ body.dark-mode {
   background: #f9f9f9;
 }
 
+.star-section {
+  margin-top: 10px;
+}
 
+.star-section button {
+  background: gold;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.star-section button:hover {
+  background: darkgoldenrod;
+}
 
 
 

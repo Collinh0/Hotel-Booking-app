@@ -69,7 +69,7 @@ fetch("http://localhost:3000/hotels", options)
     });
 
  //fetchig and displaying the hotels
- const hotelContainer = document.getElementById("hotelId");
+ const hotelContainer = document.getElementById("hotelss");
  const searchInput = document.getElementById("search");
 
  let hotelsData = [];
@@ -86,6 +86,13 @@ fetch("http://localhost:3000/hotels", options)
     .map(
       (hotel) => `
       <div class="hotel">
+       <div class="star-section">
+          <button id="star-${hotel.id}" onclick="toggleStar(${hotel.id}, ${
+        hotel.starred
+      })">
+            ${hotel.starred ? "⭐ Starred" : "☆ Star"}
+          </button>
+        </div>
     <img src="${hotel.poster}" alt="${hotel.name}" class="hotel-image">
         <h3>${hotel.name}</h3>
         <p> Location: ${hotel.location}</p>
@@ -96,10 +103,16 @@ fetch("http://localhost:3000/hotels", options)
         class = "buttonjs"> Book Now
          </button>
       </div>
+       
     `
     )
     .join("");
-}
+ }
+//adding event listener to buttonJs
+const buttonJs = document.getElementById(buttonjs)
+buttonJs.addEventListener("click", (e) => {
+  console.log("Booking Hotel")
+})
 
 // Search filter
 searchInput.addEventListener("input", () => {
@@ -130,8 +143,9 @@ function openBookingForm(hotelId) {
       document.getElementById("hotel-id").value = hotel.id; // Store ID for submission
     });
 }
-document.getElementById("booking-form")
-  document.addEventListener("submit", function (event) {
+document
+    .getElementById("booking-form")
+    .addEventListener("submit", function (event) {
     event.preventDefault();
 
     const bookingData = {
@@ -141,7 +155,7 @@ document.getElementById("booking-form")
       payment: document.getElementById("payment").value,
     };
 
-    fetch("http://localhost:3000/bookings", {
+    fetch("http://localhost:3000/hotels", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(bookingData),
@@ -154,6 +168,26 @@ document.getElementById("booking-form")
       });
   }); 
   
+//Bookmarking featue
+  function toggleStar(hotelId, isStarred) {
+    fetch(`http://localhost:3000/hotels/${hotelId}`)
+      .then((res) => res.json())
+      .then((hotel) => {
+        const newStarStatus = !hotel.starred;
+        return fetch(`http://localhost:3000/hotels/${hotelId}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ starred: newStarStatus }),
+        });
+      })
+      .then(() => {
+        document.getElementById(`star-${hotelId}`).innerText = isStarred
+          ? "☆ Bookmark"
+          : "⭐ Bookmarked";
+      })
+      .catch((error) => console.error("Error updating star status:", error));
+  }
+
 
  
 

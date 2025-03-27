@@ -1,18 +1,13 @@
 {
   "hotels": [
     {
-      "id": "a81c",
-      "name": "Sarova White Sands",
-      "rates": "10000",
-      "location": "Mombasa",
-      "poster": "images/image.png"
-    },
-    {
       "id": "2940",
       "name": "Diamonds",
       "rates": "11000",
       "location": "Malindi",
-      "poster": "images/DiamondsMalindi.jpg"
+      "poster": "images/DiamondsMalindi.jpg",
+      "starred": false,
+      "Bookmarked": true
     },
     {
       "id": "4ff9",
@@ -26,7 +21,8 @@
       "name": "English Point Marina",
       "rates": "13000",
       "location": "Mombasa",
-      "poster": "images/englishpoint-marina-hotel-mombasa-9.webp"
+      "poster": "images/englishpoint-marina-hotel-mombasa-9.webp",
+      "starred": false
     },
     {
       "id": "5ab4",
@@ -56,6 +52,13 @@
       "location": "Kisumu",
       "poster": "images/acacia.jpg",
       "button": "buttonEight"
+    },
+    {
+      "id": "a81c",
+      "name": "Sarova White Sands",
+      "rates": "10000",
+      "location": "Mombasa",
+      "poster": "images/image.png"
     }
   ]
 }
