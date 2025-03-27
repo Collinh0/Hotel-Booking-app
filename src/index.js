@@ -84,10 +84,9 @@ fetch("http://localhost:3000/hotels", options)
  function displayHotels(hotels) {
   hotelContainer.innerHTML = hotels
     .map(
-      (hotel) => `
-      <div class="hotel">
+      (hotel) => `<div class="hotel">
        <div class="star-section">
-          <button id="star-${hotel.id}" onclick="toggleStar(${hotel.id}, ${
+         <button id="star-${hotel.id}" onclick="toggleStar(${hotel.id}, ${
         hotel.starred
       })">
             ${hotel.starred ? "⭐ Starred" : "☆ Star"}
@@ -97,11 +96,9 @@ fetch("http://localhost:3000/hotels", options)
         <h3>${hotel.name}</h3>
         <p> Location: ${hotel.location}</p>
         <p> Price: ksh${hotel.rates}</p>
-        <button onclick="openBookingForm(${hotel.id}, '${
-        hotel.name
-      }')">Book Hotel</button>
+        <button onclick = "openBookingForm(${hotel.id}, '${hotel.name}')">Book Hotel</button>
       </div>
-        `)
+       `)
     .join("");
  }
 
@@ -114,52 +111,7 @@ searchInput.addEventListener("input", () => {
     );
     displayHotels(filteredHotels);
 });
-
-//booking
-//NB: Commented out during debugging totry a new code and it worked.Might as well delete these lines when satisfied with the results.
- /** function openBookingForm(hotelId) {
-  fetch(`http://localhost:3000/hotels/${hotelId}`)
-    .then((res) => res.json())
-    .then((hotel) => {
-      document.getElementById("booking-form").style.display = "block";
-      document.getElementById("hotel-name").innerText = hotel.name; // Show hotel name in form
-      document.getElementById("hotel-id").value = hotel.id; // Store ID for submission
-    });
-}
-function openBookingForm(hotelId) {
-  fetch(`http://localhost:3000/hotels/${hotelId}`)
-    .then((res) => res.json())
-    .then((hotel) => {
-      document.getElementById("booking-form").style.display = "block";
-      document.getElementById("hotel-name").innerText = hotel.name; // Show hotel name in form
-      document.getElementById("hotel-id").value = hotel.id; // Store ID for submission
-    });
-}
-document
-    .getElementById("booking-form")
-    .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const bookingData = {
-      hotelId: document.getElementById("hotelId").value,
-      email: document.getElementById("email").value,
-      checkIn: document.getElementById("check-in").value,
-      payment: document.getElementById("payment").value,
-    };
-
-    fetch("http://localhost:3000/hotels", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(bookingData),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        alert("Hotel booked successfully!");
-        document.getElementById("booking-form").style.display = "none";
-        document.getElementById("booking-form").reset(); 
-      });
-  }); */
-  
+ 
 //Bookmarking featue
   function toggleStar(hotelId, isStarred) {
     fetch(`http://localhost:3000/hotels/${hotelId}`)
@@ -175,9 +127,9 @@ document
       .then(() => {
         document.getElementById(`star-${hotelId}`).innerText = isStarred
           ? "☆ Bookmark"
-          : "⭐ Bookmarked";
+          : "⭐ Bookmarked"; 
       })
-      .catch((error) => console.error("Error updating star status:", error));
+      //.catch((error) => console.error("Error updating star status:", error));
   }
 
 //fn to open booking form
@@ -204,7 +156,7 @@ document.getElementById("bookingForm")
       payment: document.getElementById("payment").value,
     };
 
-    fetch("http://localhost:3000/bookings", {
+    fetch("http://localhost:3000/hotels", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(bookingData),
@@ -217,7 +169,7 @@ document.getElementById("bookingForm")
       })
       .catch((error) => {
         console.error("Error booking hotel:", error);
-        alert("⚠️ Booking failed. Please try again.");
+        alert("Booking failed. Please try again.");
       });
   });
 
