@@ -102,11 +102,8 @@ function getItems() {
       .map(
         (hotel) => `<div class="hotel">
        <div class="star-section">
-       <button id = "star-${hotel.id}" onclick = "toggleStar(${hotel.id}, ${
-          hotel.starred
-        })">
-            ${hotel.starred ? "⭐ Starred" : "☆ Star"}
-          </button>
+       <button id = "star-${hotel.id}" onclick = "toggleStar(${hotel.id}, ${hotel.starred})">
+            ${hotel.starred ? "⭐ Starred" : "☆ Star"}</button>
         </div>
     <img src="${hotel.poster}" alt="${hotel.name}" class="hotel-image">
         <h3>${hotel.name}</h3>
@@ -145,7 +142,7 @@ function getItems() {
         document.getElementById(`star-${hotelId}`).innerText = isStarred
           ? "☆ Star"
           : "⭐ Starred";
-      });
+      }); 
     //document.catch((error) => console.error("Error updating star status:", error));
   }
 
@@ -154,8 +151,8 @@ function getItems() {
     document.getElementById("bookingForm").style.display = "block";
     document.getElementById("hotel-name").innerText = hotelName;
     document.getElementById("hotel-id").value = hotelId;
-  }
-    //document.getElementById("bookingForm").addEventListener("submit", function (event) { event.preventDefault() })
+  } 
+    document.getElementById("bookingForm").addEventListener("submit", function (event) { event.preventDefault() })
   
 
   // Close booking form
@@ -192,6 +189,7 @@ function getItems() {
       });
   });
 }
+
 
 
 
