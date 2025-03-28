@@ -134,7 +134,6 @@ searchInput.addEventListener("input", () => {
       })
       //.catch((error) => console.error("Error updating star status:", error));
   }
-  
 
 //fn to open booking form
 function openBookingForm(hotelId, hotelName) {
