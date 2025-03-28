@@ -141,7 +141,7 @@ body.dark-mode {
   border-radius: 10px;
 
 }
-#hotelss {
+#hotels {
   display: grid;
   grid-template-columns:repeat(2, 1fr);
   gap: 10px; 

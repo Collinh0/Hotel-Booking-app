@@ -1,5 +1,5 @@
 //adding event listeners 
-const buttonOne = document.getElementById("buttonOne")
+/**const buttonOne = document.getElementById("buttonOne")
 const buttonTwo = document.getElementById("buttonTwo")
 const buttonThree = document.getElementById("buttonThree")
 const buttonFour = document.getElementById("buttonFour")
@@ -39,56 +39,72 @@ buttonSeven.addEventListener("click", (e) => {
 
 buttonEight.addEventListener("click", (e) => {
     console.log("Booking Acacia Premiere")
-}) 
+})
+  NB: Commented out because this code was linked to html containers that have been overwrittten by javascript dynamically.  
 
+*/
 //fetch
-const options = {
-  method: "GET",
-  headers: {
-    Accept: "*/*", 
-    "Accept-Encoding": "gzip, deflate, br",
-    "User-Agent": "EchoapiRuntime/1.1.0",
-    Connection: "keep-alive",
-  },
- // body: "false", -> commented out
-};
 
-fetch("http://localhost:3000/hotels", options)
-  .then((response) => response.json())
-  .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-  
-//dark/light theme
-    const toggleButton = document.getElementById("theme-toggle");
-    const body = document.body;
+ document.addEventListener("DOMContentLoaded", function () {
+   getItems();
+ });
+function getItems() {
+  const options = {
+    method: "GET",
+    headers: {
+      Accept: "*/*",
+      "Accept-Encoding": "gzip, deflate, br",
+      "User-Agent": "EchoapiRuntime/1.1.0",
+      Connection: "keep-alive",
+    },
+    //body: "false", -> commented out
+  };
 
+  fetch("http://localhost:3000/hotels", options)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+   //.catch((err) => console.error(err));
 
-    // Toggle function
-    toggleButton.addEventListener("click", () => {
-      body.classList.toggle("dark-mode")
+  //render items
+  function renderItems(items) {
+    const itemListDiv = document.getElementById("hotels");
+    itemListDiv.innerHTML = "";
+    items.forEach((item) => {
+      console
+        .log(item)
+      .catch((error) => console.error("Error updating star status:", error));
     });
+  }
+  //dark/light theme
+  const toggleButton = document.getElementById("theme-toggle");
+  const body = document.body;
 
- //fetching and displaying the hotels
- const hotelContainer = document.getElementById("hotelss");
- const searchInput = document.getElementById("search");
-
- let hotelsData = [];
-
- fetch("http://localhost:3000/hotels")
-  .then(res => res.json())
-  .then(hotels => {
-    hotelsData = hotels; 
-    displayHotels(hotelsData); 
+  // Toggle function
+  toggleButton.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
   });
 
- function displayHotels(hotels) {
-  hotelContainer.innerHTML = hotels
-    .map(
-      (hotel) => `<div class="hotel">
+  //fetching and displaying the hotels
+  const hotelContainer = document.getElementById("hotels");
+  const searchInput = document.getElementById("search");
+
+  let hotelsData = [];
+
+  fetch("http://localhost:3000/hotels")
+    .then((res) => res.json())
+    .then((hotels) => {
+      hotelsData = hotels;
+      displayHotels(hotelsData);
+    });
+
+  function displayHotels(hotels) {
+    hotelContainer.innerHTML = hotels
+      .map(
+        (hotel) => `<div class="hotel">
        <div class="star-section">
-         <button id="star-${hotel.id}" onclick="toggleStar(${hotel.id}, ${
-        hotel.starred
-      })">
+       <button id = "star-${hotel.id}" onclick = "toggleStar(${hotel.id}, ${
+          hotel.starred
+        })">
             ${hotel.starred ? "⭐ Starred" : "☆ Star"}
           </button>
         </div>
@@ -97,26 +113,24 @@ fetch("http://localhost:3000/hotels", options)
         <p> Location: ${hotel.location}</p>
         <p> Price: ksh${hotel.rates}</p>
         <button onclick = "openBookingForm(${hotel.id}, '${
-        hotel.name 
-      }')">Book Hotel</button>
-      </div>
-       `
-    )
-    .join("");
- } 
- 
+          hotel.name}'
+        )">Book Hotel</button>
+      </div>`
+      )
+      .join("");
+  }
 
-// Search filter
-searchInput.addEventListener("input", () => {
+  // Search filter
+  searchInput.addEventListener("input", () => {
     const searchTerm = searchInput.value.toLowerCase();
-    const filteredHotels = hotelsData.filter(hotel =>
-        hotel.name.toLowerCase().includes(searchTerm)
+    const filteredHotels = hotelsData.filter((hotel) =>
+      hotel.name.toLowerCase().includes(searchTerm)
     );
     displayHotels(filteredHotels);
-});
- 
-//Bookmarking feature
-  function toggleStar(hotelId, isStarred) {
+  });
+
+  //Bookmarking feature
+  function toggleStar(hotelId, isStarred)  {
     fetch(`http://localhost:3000/hotels/${hotelId}`)
       .then((res) => res.json())
       .then((hotel) => {
@@ -124,31 +138,33 @@ searchInput.addEventListener("input", () => {
         return fetch(`http://localhost:3000/hotels/${hotelId}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ starred: newStarStatus }),
+          body: JSON.stringify({Starred: newStarStatus }),
         });
       })
       .then(() => {
         document.getElementById(`star-${hotelId}`).innerText = isStarred
-          ? "☆ Bookmark"
-          : "⭐ Bookmarked"; 
-      })
-      //.catch((error) => console.error("Error updating star status:", error));
+          ? "☆ Star"
+          : "⭐ Starred";
+      });
+    //document.catch((error) => console.error("Error updating star status:", error));
   }
 
-//fn to open booking form
-function openBookingForm(hotelId, hotelName) {
-  document.getElementById("booking-form").style.display = "block";
-  document.getElementById("hotel-name").innerText = hotelName;
-  document.getElementById("hotel-id").value = hotelId;
-}
+ //fn to open booking form
+  function openBookingForm(hotelId, hotelName) {
+    document.getElementById("bookingForm").style.display = "block";
+    document.getElementById("hotel-name").innerText = hotelName;
+    document.getElementById("hotel-id").value = hotelId;
+  }
+    //document.getElementById("bookingForm").addEventListener("submit", function (event) { event.preventDefault() })
+  
 
-// Close booking form
-function closeBookingForm() {
-  document.getElementById("booking-form").style.display = "none";
-}
+  // Close booking form
+  function closeBookingForm() {
+    document.getElementById("bookingForm").style.display = "block";
+  }
 
-//Booking submission
- document.getElementById("bookingForm")
+  //Booking submission
+  document.getElementById("bookingForm");
   document.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -159,7 +175,7 @@ function closeBookingForm() {
       payment: document.getElementById("payment").value,
     };
 
-    fetch("http://localhost:3000/bookings", {
+    fetch("http://localhost:3000/hotels", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(bookingData),
@@ -167,16 +183,15 @@ function closeBookingForm() {
       .then((res) => res.json())
       .then(() => {
         alert(" Booked!");
-        document.getElementById("booking-form").style.display = "none";
+        document.getElementById("bookingForm").style.display = "none";
         document.getElementById("bookingForm").reset();
       })
       .catch((error) => {
         console.error("Error booking hotel:", error);
         alert("Booking failed. Please try again.");
       });
-  }); 
-
-
+  });
+}
 
 
 
