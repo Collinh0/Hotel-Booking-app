@@ -1,127 +1,142 @@
 {
   "hotels": [
     {
-      "id": "2940",
+      "id": "1",
       "name": "Diamonds",
-      "rates": "11000",
+      "rates": 11000,
       "location": "Malindi",
       "poster": "images/DiamondsMalindi.jpg",
-      "starred": true,
-      "Bookmarked": true
+      "starred": false,
+      "bookmarked": true
     },
     {
-      "id": "4ff9",
+      "id": "2",
       "name": "Villa Ameera",
-      "rates": "12000",
+      "rates": 12000,
       "location": "Malindi",
-      "poster": "images/villaAmeera.jpg"
+      "poster": "images/villaAmeera.jpg",
+      "starred": false,
+      "bookmarked": false
     },
     {
-      "id": "7f9b",
+      "id": "3",
       "name": "Lake Nakuru Lodge",
-      "rates": "16000",
+      "rates": 16000,
       "location": "Lake Nakuru",
-      "poster": "images/Lake-Nakuru-Sopa.jpg"
+      "poster": "images/Lake-Nakuru-Sopa.jpg",
+      "starred": false,
+      "bookmarked": false
     },
     {
-      "id": "e974",
+      "id": "4",
       "name": "Acacia Premiere",
-      "rates": "17000",
+      "rates": 17000,
       "location": "Kisumu",
       "poster": "images/acacia.jpg",
-      "button": "buttonEight",
-      "starred": false
+      "starred": false,
+      "bookmarked": false
     },
     {
-      "id": "a81c",
+      "id": "5",
       "name": "Sarova White Sands",
-      "rates": "10000",
+      "rates": 10000,
       "location": "Mombasa",
-      "poster": "images/image.png"
+      "poster": "images/image.png",
+      "starred": false,
+      "bookmarked": false
     },
     {
-      "id": "6678",
+      "id": "6",
       "name": "English Point Marina",
-      "rates": "13000",
+      "rates": 13000,
       "location": "Mombasa",
       "poster": "images/englishpoint-marina-hotel-mombasa-9.webp",
-      "starred": false
+      "starred": true,
+      "bookmarked": false
     },
     {
-      "id": "4ff9",
-      "name": "Villa Ameera",
-      "rates": "12000",
-      "location": "Malindi",
-      "poster": "images/villaAmeera.jpg"
-    },
-    {
-      "id": "5ab4",
+      "id": "7",
       "name": "Chale Island Resort",
-      "rates": "16000",
+      "rates": 16000,
       "location": "Kwale",
-      "poster": "images/chale-island.jpg"
+      "poster": "images/chale-island.jpg",
+      "starred": false,
+      "bookmarked": false
     }
   ],
   "bookings": [
     {
-      "id": "a81c",
+      "id": "9",
       "name": "Sarova White Sands",
-      "rates": "10000",
+      "rates": 10000,
       "location": "Mombasa",
       "poster": "images/image.png"
     },
     {
-      "id": "e974",
+      "id": "10",
       "name": "Acacia Premiere",
-      "rates": "17000",
+      "rates": 17000,
       "location": "Kisumu",
-      "poster": "images/acacia.jpg",
-      "button": "buttonEight"
+      "poster": "images/acacia.jpg"
     },
     {
-      "id": "4ff9",
+      "id": "11",
       "name": "Villa Ameera",
-      "rates": "12000",
+      "rates": 12000,
       "location": "Malindi",
       "poster": "images/villaAmeera.jpg"
     },
     {
-      "id": "5ab4",
+      "id": "12",
       "name": "Chale Island Resort",
-      "rates": "16000",
+      "rates": 16000,
       "location": "Kwale",
       "poster": "images/chale-island.jpg"
     },
     {
-      "id": "0e04",
-      "name": "Eliye Springs  Resort",
-      "rates": "15000",
+      "id": "13",
+      "name": "Eliye Springs Resort",
+      "rates": 15000,
       "location": "Lake Turkana",
       "poster": "images/eliyeSprings.jpg"
     },
     {
-      "id": "7f9b",
+      "id": "14",
       "name": "Lake Nakuru Lodge",
-      "rates": "16000",
+      "rates": 16000,
       "location": "Lake Nakuru",
       "poster": "images/Lake-Nakuru-Sopa.jpg"
     },
     {
-      "id": "6678",
+      "id": "15",
       "name": "English Point Marina",
-      "rates": "13000",
+      "rates": 13000,
       "location": "Mombasa",
       "poster": "images/englishpoint-marina-hotel-mombasa-9.webp",
       "starred": false
     },
     {
-      "id": "2940",
+      "id": "16",
       "name": "Diamonds",
-      "rates": "11000",
+      "rates": 11000,
       "location": "Malindi",
       "poster": "images/DiamondsMalindi.jpg",
       "starred": false,
-      "Bookmarked": true
+      "bookmarked": true
+    },
+    {
+      "id": "9ea6",
+      "hotelId": "1",
+      "email": "lewisdicksonn@gmail.com",
+      "checkIn": "2025-03-27",
+      "payment": "Paypal"
+    },
+    {
+      "id": "2cd3",
+      "hotelId": "2",
+      "email": "collowmartial@gmail.com",
+      "checkIn": "2025-03-27",
+      "payment": "M Pesa"
     }
   ]
 }

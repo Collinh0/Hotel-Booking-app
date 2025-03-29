@@ -141,7 +141,7 @@ body.dark-mode {
   border-radius: 10px;
 
 }
-#hotels {
+#hotelss {
   display: grid;
   grid-template-columns:repeat(2, 1fr);
   gap: 10px; 
@@ -157,7 +157,6 @@ body.dark-mode {
 
 .star-section {
   margin-top: 10px;
-  margin-bottom: 5px;
 }
 
 .star-section button {
@@ -169,7 +168,9 @@ body.dark-mode {
   font-weight: bold;
 }
 
-
+.star-section button:hover {
+  background: rgb(143, 104, 4);
+}
 
 
 
