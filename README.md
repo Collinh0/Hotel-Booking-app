@@ -2,7 +2,7 @@
 
 ### Overview
 -This an an online hotel booking app that demonstrates fundamental web developement concepts using HTML,CSS and JavaScript.
--The project simulates an application that allow users browse various hotels posted and pick their desired one.
+-The project simulates an application that allow users to browse various hotels posted and pick their desired one.
 -It fetches and displayb data stored in a json server.
 
 ### Features
